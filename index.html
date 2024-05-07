@@ -51,8 +51,15 @@ main {
     }
 }
     </style>
-
-    <script> 
+</head>
+<body>
+    <header>
+        <h1>Shiva Cric Updates</h1>
+    </header>
+    <main>
+        <!-- Match updates will be displayed here -->
+        <div id="match-updates"></div>
+         <script> 
     // Fetch match updates from the server
 fetch('/api/match-updates')
     .then(response => response.json())
@@ -72,14 +79,6 @@ fetch('/api/match-updates')
     })
     .catch(error => console.error('Error fetching match updates:', error));
     </script>
-</head>
-<body>
-    <header>
-        <h1>Shiva Cric Updates</h1>
-    </header>
-    <main>
-        <!-- Match updates will be displayed here -->
-        <div id="match-updates"></div>
     </main>
 </body>
 </html>
