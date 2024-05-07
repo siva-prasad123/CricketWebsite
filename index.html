@@ -5,51 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shiva Cric Updates</title>
     <style>
-        /* CSS styles for Shiva Cric Updates website */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-/* Body styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
 
-/* Header styles */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
+        main {
+            padding: 1rem;
+        }
 
-/* Main content styles */
-main {
-    padding: 20px;
-}
+        .match-update {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
 
-/* Match updates container styles */
-#match-updates {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
-}
+        .match-update h2 {
+            color: #333;
+        }
 
-/* Match updates item styles */
-#match-updates h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
+        .match-update p {
+            margin: 0.5rem 0;
+        }
 
-#match-updates p {
-    margin: 5px 0;
-}
-
-/* Responsive styles */
-@media only screen and (max-width: 600px) {
-    header {
-        font-size: 18px;
-    }
-}
+        .match-update p strong {
+            font-weight: bold;
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -57,29 +50,36 @@ main {
         <h1>Shiva Cric Updates</h1>
     </header>
     <main>
-        <!-- Match updates will be displayed here -->
-        <div id="match-updates"></div>
-        <p> This is my trail website </p>
-         <script> 
-    // Fetch match updates from the server
-fetch('/api/match-updates')
-    .then(response => response.json())
-    .then(data => {
-        // Update the HTML content with match updates
+        <div class="match-update" id="match-updates">
+            <!-- Match updates will be displayed here -->
+        </div>
+    </main>
+
+    <script>
+        // Sample match update data
+        const matchUpdateData = {
+            tournament: "IPL 2024",
+            pitch_report: "Dry pitch with cracks",
+            probability: "60%",
+            score: "150/3",
+            wickets: "3",
+            current_players: ["Player 1", "Player 2", "Player 3"],
+            bowler: "Bowler 1",
+            target: "200"
+        };
+
+        // Update match updates content
         const matchUpdatesDiv = document.getElementById('match-updates');
         matchUpdatesDiv.innerHTML = `
-            <h2>${data.tournament}</h2>
-            <p><strong>Pitch Report:</strong> ${data.pitch_report}</p>
-            <p><strong>Probability:</strong> ${data.probability}</p>
-            <p><strong>Score:</strong> ${data.score}</p>
-            <p><strong>Wickets:</strong> ${data.wickets}</p>
-            <p><strong>Current Players:</strong> ${data.current_players.join(', ')}</p>
-            <p><strong>Bowler:</strong> ${data.bowler}</p>
-            <p><strong>Target:</strong> ${data.target}</p>
+            <h2>${matchUpdateData.tournament}</h2>
+            <p><strong>Pitch Report:</strong> ${matchUpdateData.pitch_report}</p>
+            <p><strong>Probability:</strong> ${matchUpdateData.probability}</p>
+            <p><strong>Score:</strong> ${matchUpdateData.score}</p>
+            <p><strong>Wickets:</strong> ${matchUpdateData.wickets}</p>
+            <p><strong>Current Players:</strong> ${matchUpdateData.current_players.join(', ')}</p>
+            <p><strong>Bowler:</strong> ${matchUpdateData.bowler}</p>
+            <p><strong>Target:</strong> ${matchUpdateData.target}</p>
         `;
-    })
-    .catch(error => console.error('Error fetching match updates:', error));
     </script>
-    </main>
 </body>
 </html>
