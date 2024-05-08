@@ -52,7 +52,7 @@
     <main>
         <div class="match-update" id="match-updates">
             <!-- Match updates will be displayed here -->
-            <p> Todays Update 1</p>
+            <p> Todays Update 2</p>
         </div>
     </main>
     <script> 
@@ -71,6 +71,16 @@ fetch('/api/match-updates')
             <p><strong>Current Players:</strong> ${data.current_players.join(', ')}</p>
             <p><strong>Bowler:</strong> ${data.bowler}</p>
             <p><strong>Target:</strong> ${data.target}</p>
+
+            <h2>${match_updates_data.tournament}</h2>
+            <p><strong>Pitch Report:</strong> ${match_updates_data.pitch_report}</p>
+            <p><strong>Probability:</strong> ${match_updates_data.probability}</p>
+            <p><strong>Score:</strong> ${data.score}</p>
+            <p><strong>Wickets:</strong> ${data.wickets}</p>
+            <p><strong>Current Players:</strong> ${data.current_players.join(', ')}</p>
+            <p><strong>Bowler:</strong> ${data.bowler}</p>
+            <p><strong>Target:</strong> ${data.target}</p>
+            
         `;
     })
     .catch(error => console.error('Error fetching match updates:', error));
