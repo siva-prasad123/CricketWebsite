@@ -58,7 +58,7 @@
     <script> 
     // Fetch match updates from the server
 fetch('/api/match-updates')
-    .then(response => response.json())
+    .then(response => response.tojson())
     .then(data => {
         // Update the HTML content with match updates
         const matchUpdatesDiv = document.getElementById('match_updates_data');
