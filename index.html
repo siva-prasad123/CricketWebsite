@@ -52,34 +52,28 @@
     <main>
         <div class="match-update" id="match-updates">
             <!-- Match updates will be displayed here -->
+            <p> Todays Update</p>
         </div>
     </main>
-
-    <script>
-        // Sample match update data
-        const matchUpdateData = {
-            tournament: "IPL 2024",
-            pitch_report: "Dry pitch with cracks",
-            probability: "60%",
-            score: "150/3",
-            wickets: "3",
-            current_players: ["Player 1", "Player 2", "Player 3"],
-            bowler: "Bowler 1",
-            target: "200"
-        };
-
-        // Update match updates content
+    <script> 
+    // Fetch match updates from the server
+fetch('/api/match-updates')
+    .then(response => response.json())
+    .then(data => {
+        // Update the HTML content with match updates
         const matchUpdatesDiv = document.getElementById('match-updates');
         matchUpdatesDiv.innerHTML = `
-            <h2>${matchUpdateData.tournament}</h2>
-            <p><strong>Pitch Report:</strong> ${matchUpdateData.pitch_report}</p>
-            <p><strong>Probability:</strong> ${matchUpdateData.probability}</p>
-            <p><strong>Score:</strong> ${matchUpdateData.score}</p>
-            <p><strong>Wickets:</strong> ${matchUpdateData.wickets}</p>
-            <p><strong>Current Players:</strong> ${matchUpdateData.current_players.join(', ')}</p>
-            <p><strong>Bowler:</strong> ${matchUpdateData.bowler}</p>
-            <p><strong>Target:</strong> ${matchUpdateData.target}</p>
+            <h2>${data.tournament}</h2>
+            <p><strong>Pitch Report:</strong> ${data.pitch_report}</p>
+            <p><strong>Probability:</strong> ${data.probability}</p>
+            <p><strong>Score:</strong> ${data.score}</p>
+            <p><strong>Wickets:</strong> ${data.wickets}</p>
+            <p><strong>Current Players:</strong> ${data.current_players.join(', ')}</p>
+            <p><strong>Bowler:</strong> ${data.bowler}</p>
+            <p><strong>Target:</strong> ${data.target}</p>
         `;
+    })
+    .catch(error => console.error('Error fetching match updates:', error));
     </script>
 </body>
 </html>
